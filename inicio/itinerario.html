@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="../img/favicon.png">
   <title>Mi itinerario | Nexora</title>
 
   <!-- Tipografías del documento -->
@@ -12,27 +12,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="itinerario.css">
-</head>
-<body>
+  <link rel="stylesheet" href="../css/api-states.css">
+  </head>
+<body data-page="itinerario">
 
   <!-- ==================== NAVBAR ==================== -->
   <header class="navbar">
     <div class="container nav-inner">
 
       <a href="#" class="logo">
-        <img src="/img/icon1.png" alt="Nexora - Planifica tu viaje">
+        <img src="../img/icon1.png" alt="Nexora - Planifica tu viaje">
       </a>
 
       <nav class="nav-main" aria-label="Navegación principal">
-        <a href="/inicio/inicio.html">Inicio</a>
-        <a href="/inicio/explorar.html">Explorar destinos</a>
-        <a href="/inicio/favoritos.html">Favoritos</a>
-        <a href="/inicio/itinerario.html" class="active">Itinerario</a>
-        <a href="/inicio/formulario.html">Formulario de Planificación</a>
+        <a href="inicio.html">Inicio</a>
+        <a href="explorar.html">Explorar destinos</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="itinerario.html" class="active">Itinerario</a>
+        <a href="formulario.html">Formulario de Planificación</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="/login/login.html" class="btn btn-outline btn-sm">Iniciar sesión</a>
+        <a href="../login/login.html" class="btn btn-outline btn-sm">Iniciar sesión</a>
         <a href="#" class="btn btn-primary btn-sm">Crear itinerario</a>
       </div>
 
@@ -40,12 +41,12 @@
       <details class="mobile-menu">
         <summary>Menú</summary>
         <nav aria-label="Menú móvil">
-          <a href="/inicio/inicio.html">Inicio</a>
-          <a href="/inicio/explorar">Explorar destinos</a>
-          <a href="/inicio/favoritos">Favoritos</a>
+          <a href="inicio.html">Inicio</a>
+          <a href="explorar.html">Explorar destinos</a>
+          <a href="favoritos.html">Favoritos</a>
           <a href="itinerario.html" class="active">Itinerario</a>
-          <a href="/inicio/formulario.html">Formulario de Planificación</a>
-          <a href="/login/login.html">Iniciar sesión</a>
+          <a href="formulario.html">Formulario de Planificación</a>
+          <a href="../login/login.html">Iniciar sesión</a>
         </nav>
       </details>
 
@@ -73,16 +74,18 @@
         <!-- Tarjeta del viaje -->
         <aside class="trip-card" aria-label="Resumen del viaje">
           <span class="trip-flag" aria-hidden="true">🇨🇴</span>
-          <h2>Cartagena</h2>
-          <p class="trip-dates">12 – 14 de mayo de 2026</p>
+          <h2 id="trip-title">Cartagena</h2>
+          <p class="trip-dates" id="trip-dates">12 – 14 de mayo de 2026</p>
 
           <ul class="trip-stats">
-            <li><span>Días</span><strong>3</strong></li>
+            <li><span>Días</span><strong id="trip-days">3</strong></li>
             <li><span>Actividades</span><strong>7</strong></li>
-            <li><span>Clima</span><strong>31 °C</strong></li>
+            <li><span>Clima</span><strong id="trip-weather">31 °C</strong></li>
           </ul>
 
-          <a href="../explorar/explorar.html" class="btn btn-outline">Cambiar destino</a>
+          <p class="api-status" id="trip-status" aria-live="polite"></p>
+
+          <a href="explorar.html" class="btn btn-outline">Cambiar destino</a>
         </aside>
 
         <!-- Carrusel automático -->
@@ -246,6 +249,13 @@
       </div>
     </section>
 
+  <section class="section api-map-wrap">
+    <div class="container">
+      <h3 class="api-subtitle">Destino en el mapa</h3>
+      <div id="trip-map" class="api-map" data-map></div>
+    </div>
+  </section>
+
   </main>
 
   <!-- ==================== FOOTER ==================== -->
@@ -254,15 +264,15 @@
 
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="/img/icon1.png" alt="Nexora" class="footer-logo">
+          <img src="../img/icon1.png" alt="Nexora" class="footer-logo">
           <p>Planifica tu viaje con claridad, desde la primera idea hasta el regreso.</p>
         </div>
 
         <div>
           <h4>Producto</h4>
           <ul>
-            <li><a href="../explorar/explorar.html">Explorar destinos</a></li>
-            <li><a href="../favoritos/favoritos.html">Favoritos</a></li>
+            <li><a href="explorar.html">Explorar destinos</a></li>
+            <li><a href="favoritos.html">Favoritos</a></li>
             <li><a href="itinerario.html">Itinerario</a></li>
           </ul>
         </div>
@@ -270,7 +280,7 @@
         <div>
           <h4>Compañía</h4>
           <ul>
-            <li><a href="/login/nosotros.html">Nosotros</a></li>
+            <li><a href="../login/nosotros.html">Nosotros</a></li>
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Términos y privacidad</a></li>
           </ul>
@@ -279,8 +289,11 @@
         <div>
           <h4>Fuentes de datos</h4>
           <ul>
-            <li><a href="#">Datos del clima</a></li>
-            <li><a href="#">Catálogo de destinos</a></li>
+            <li><a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">Datos del clima · Open-Meteo</a></li>
+            <li><a href="https://github.com/mledoze/countries" target="_blank" rel="noopener">Catálogo de destinos</a></li>
+            <li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">Mapas · OpenStreetMap</a></li>
+            <li><a href="https://data.worldbank.org/indicator/SP.POP.TOTL" target="_blank" rel="noopener">Población · Banco Mundial</a></li>
+            <li><a href="https://flagcdn.com" target="_blank" rel="noopener">Banderas · flagcdn</a></li>
           </ul>
         </div>
       </div>
@@ -293,5 +306,6 @@
     </div>
   </footer>
 
-</body>
+  <script type="module" src="../js/nexora-bootstrap.js"></script>
+  </body>
 </html>

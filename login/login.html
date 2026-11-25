@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iniciar sesión | Nexora</title>
-  <link rel="stylesheet" href="/login/stylelogin.css">
-</head>
-<body>
+  <link rel="stylesheet" href="stylelogin.css">
+  <link rel="stylesheet" href="../css/api-states.css">
+  </head>
+<body data-page="login">
 
   <div class="login-page">
 
@@ -25,7 +26,7 @@
 
         <!-- Logo de la marca -->
         <div class="brand">
-          <img src="/img/icon1.png" alt="Nexora - Planifica tu viaje">
+          <img src="../img/icon1.png" alt="Nexora - Planifica tu viaje">
         </div>
 
         <h1 class="title">Bienvenido de nuevo</h1>
@@ -65,8 +66,11 @@
           </div>
           
           <button type="button" class="btn-primary" onclick="window.location.href='/inicio/inicio.html'">Iniciar sesión</button>
-          <!-- <a href="/inicio/inicio.html" class="link"><button type="submit" class="btn-primary">Iniciar sesión</button></a> -->
+          <!-- <a href="../inicio/inicio.html" class="link"><button type="submit" class="btn-primary">Iniciar sesión</button></a> -->
         </form>
+
+          <div id="login-api" class="api-panel" aria-live="polite"></div>
+          <div id="login-map" class="api-map" data-map></div>
 
         <div class="divider"><span>o</span></div>
 
@@ -85,5 +89,6 @@
 
   </div>
 
-</body>
+  <script type="module" src="../js/nexora-bootstrap.js"></script>
+  </body>
 </html>

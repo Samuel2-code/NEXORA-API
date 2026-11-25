@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="../img/favicon.png">
   <title>Favoritos | Nexora</title>
 
   <!-- Tipografías del documento -->
@@ -12,28 +12,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="favoritos.css">
-</head>
-<body>
+  <link rel="stylesheet" href="../css/api-states.css">
+  </head>
+<body data-page="favoritos">
 
   <!-- ==================== NAVBAR ==================== -->
   <header class="navbar">
     <div class="container nav-inner">
 
-      <a href="/img/NEXORA.png" class="logo">
-        <img src="/img/icon1.png" alt="Nexora - Planifica tu viaje">
+      <a href="inicio.html" class="logo">
+        <img src="../img/icon1.png" alt="Nexora - Planifica tu viaje">
       </a>
 
       <nav class="nav-main" aria-label="Navegación principal">
-        <a href="/inicio/inicio.html">Inicio</a>
-        <a href="/inicio/explorar.html">Explorar destinos</a>
-        <a href="/inicio/favoritos.html" class="active">Favoritos</a>
-        <a href="/inicio/itinerario.html">Itinerario</a>
-        <a href="/inicio/formulario.html">Formulario de Planificación</a>
+        <a href="inicio.html">Inicio</a>
+        <a href="explorar.html">Explorar destinos</a>
+        <a href="favoritos.html" class="active">Favoritos</a>
+        <a href="itinerario.html">Itinerario</a>
+        <a href="formulario.html">Formulario de Planificación</a>
         
       </nav>
 
       <div class="nav-actions">
-        <a href="/login/login.html" class="btn btn-outline btn-sm">Iniciar sesión</a>
+        <a href="../login/login.html" class="btn btn-outline btn-sm">Iniciar sesión</a>
         <a href="#" class="btn btn-primary btn-sm">Crear itinerario</a>
       </div>
 
@@ -41,13 +42,13 @@
       <details class="mobile-menu">
         <summary>Menú</summary>
         <nav aria-label="Menú móvil">
-          <a href="/inicio/inicio.html">Inicio</a>
-          <a href="/inicio/explorar.html">Explorar destinos</a>
-          <a href="/inicio/favoritos.html" class="active">Favoritos</a>
-          <a href="/inicio/itinerario">Itinerario</a>
-          <a href="/inicio/formulario">Formulario de Planificación</a>
+          <a href="inicio.html">Inicio</a>
+          <a href="explorar.html">Explorar destinos</a>
+          <a href="favoritos.html" class="active">Favoritos</a>
+          <a href="itinerario.html">Itinerario</a>
+          <a href="formulario.html">Formulario de Planificación</a>
         
-          <a href="/login/login.html">Iniciar sesión</a>
+          <a href="../login/login.html">Iniciar sesión</a>
         </nav>
       </details>
 
@@ -69,11 +70,11 @@
         <!-- Resumen rápido -->
         <div class="stats" aria-label="Resumen de favoritos">
           <div class="stat">
-            <strong>4</strong>
+            <strong id="fav-count">4</strong>
             <span>Destinos guardados</span>
           </div>
           <div class="stat">
-            <strong>3</strong>
+            <strong id="fav-regions">3</strong>
             <span>Regiones</span>
           </div>
         </div>
@@ -85,18 +86,18 @@
     <section class="section">
       <div class="container">
 
-        <div class="dest-grid">
+        <div class="dest-grid" id="fav-results">
 
           <article class="fav-card" style="--stripe: var(--coral);">
             <div class="fav-top">
               <span class="fav-flag" aria-hidden="true">🇨🇴</span>
-              <button class="heart" type="button" aria-label="Quitar Colombia de favoritos">♥</button>
+              <button class="heart" type="button" data-fav="CO" aria-label="Quitar Colombia de favoritos">♥</button>
             </div>
             <div class="fav-body">
               <h3>Colombia</h3>
               <p class="fav-meta">Bogotá · América</p>
               <div class="fav-actions">
-                <a href="../explorar/explorar.html" class="dest-link">Ver detalle →</a>
+                <a href="explorar.html" class="dest-link">Ver detalle →</a>
                 <button class="btn btn-ghost btn-xs" type="button">Quitar</button>
               </div>
             </div>
@@ -105,13 +106,13 @@
           <article class="fav-card" style="--stripe: var(--teal);">
             <div class="fav-top">
               <span class="fav-flag" aria-hidden="true">🇯🇵</span>
-              <button class="heart" type="button" aria-label="Quitar Japón de favoritos">♥</button>
+              <button class="heart" type="button" data-fav="JP" aria-label="Quitar Japón de favoritos">♥</button>
             </div>
             <div class="fav-body">
               <h3>Japón</h3>
               <p class="fav-meta">Tokio · Asia</p>
               <div class="fav-actions">
-                <a href="../explorar/explorar.html" class="dest-link">Ver detalle →</a>
+                <a href="explorar.html" class="dest-link">Ver detalle →</a>
                 <button class="btn btn-ghost btn-xs" type="button">Quitar</button>
               </div>
             </div>
@@ -120,13 +121,13 @@
           <article class="fav-card" style="--stripe: var(--dorado);">
             <div class="fav-top">
               <span class="fav-flag" aria-hidden="true">🇮🇹</span>
-              <button class="heart" type="button" aria-label="Quitar Italia de favoritos">♥</button>
+              <button class="heart" type="button" data-fav="IT" aria-label="Quitar Italia de favoritos">♥</button>
             </div>
             <div class="fav-body">
               <h3>Italia</h3>
               <p class="fav-meta">Roma · Europa</p>
               <div class="fav-actions">
-                <a href="../explorar/explorar.html" class="dest-link">Ver detalle →</a>
+                <a href="explorar.html" class="dest-link">Ver detalle →</a>
                 <button class="btn btn-ghost btn-xs" type="button">Quitar</button>
               </div>
             </div>
@@ -135,19 +136,25 @@
           <article class="fav-card" style="--stripe: var(--navy);">
             <div class="fav-top">
               <span class="fav-flag" aria-hidden="true">🇲🇦</span>
-              <button class="heart" type="button" aria-label="Quitar Marruecos de favoritos">♥</button>
+              <button class="heart" type="button" data-fav="MA" aria-label="Quitar Marruecos de favoritos">♥</button>
             </div>
             <div class="fav-body">
               <h3>Marruecos</h3>
               <p class="fav-meta">Rabat · África</p>
               <div class="fav-actions">
-                <a href="../explorar/explorar.html" class="dest-link">Ver detalle →</a>
+                <a href="explorar.html" class="dest-link">Ver detalle →</a>
                 <button class="btn btn-ghost btn-xs" type="button">Quitar</button>
               </div>
             </div>
           </article>
 
         </div>
+
+        <div class="api-map-wrap">
+          <h3 class="api-subtitle">Tus favoritos en el mapa</h3>
+          <div id="fav-map" class="api-map" data-map></div>
+        </div>
+        <p class="api-status" id="fav-status" aria-live="polite"></p>
 
         <!-- Llamado a la acción: planificar con los favoritos -->
         <div class="cta-box">
@@ -169,14 +176,14 @@
 
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="/img/icon1.png" alt="Nexora" class="footer-logo">
+          <img src="../img/icon1.png" alt="Nexora" class="footer-logo">
           <p>Planifica tu viaje con claridad, desde la primera idea hasta el regreso.</p>
         </div>
 
         <div>
           <h4>Producto</h4>
           <ul>
-            <li><a href="../explorar/explorar.html">Explorar destinos</a></li>
+            <li><a href="explorar.html">Explorar destinos</a></li>
             <li><a href="favoritos.html">Favoritos</a></li>
             <li><a href="#">Itinerario</a></li>
           </ul>
@@ -185,7 +192,7 @@
         <div>
           <h4>Compañía</h4>
           <ul>
-            <li><a href="/login/nosotros.html">Nosotros</a></li>
+            <li><a href="../login/nosotros.html">Nosotros</a></li>
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Términos y privacidad</a></li>
           </ul>
@@ -194,8 +201,11 @@
         <div>
           <h4>Fuentes de datos</h4>
           <ul>
-            <li><a href="#">Datos del clima</a></li>
-            <li><a href="#">Catálogo de destinos</a></li>
+            <li><a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">Datos del clima · Open-Meteo</a></li>
+            <li><a href="https://github.com/mledoze/countries" target="_blank" rel="noopener">Catálogo de destinos</a></li>
+            <li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">Mapas · OpenStreetMap</a></li>
+            <li><a href="https://data.worldbank.org/indicator/SP.POP.TOTL" target="_blank" rel="noopener">Población · Banco Mundial</a></li>
+            <li><a href="https://flagcdn.com" target="_blank" rel="noopener">Banderas · flagcdn</a></li>
           </ul>
         </div>
       </div>
@@ -207,5 +217,6 @@
     </div>
   </footer>
 
-</body>
+  <script type="module" src="../js/nexora-bootstrap.js"></script>
+  </body>
 </html>

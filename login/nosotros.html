@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nosotros | Nexora</title>
-  <link rel="stylesheet" href="/login/nosotros.css">
-</head>
-<body>
+  <link rel="stylesheet" href="nosotros.css">
+  <link rel="stylesheet" href="../css/api-states.css">
+  </head>
+<body data-page="nosotros">
 
   <!-- Barra de navegación -->
   <header class="header">
     <div class="container header-inner">
       <a href="nosotros.html" class="logo">
-        <img src="/img/NEXORA.png" alt="Nexora">
+        <img src="../img/icon1.png" alt="Nexora">
       </a>
       <nav class="nav">
         <a href="nosotros.html" class="nav-link active">Nosotros</a>
@@ -81,6 +82,14 @@
       </div>
     </section>
 
+    <section class="section section-soft">
+      <div class="container">
+        <h2 class="section-title">Nexora en datos</h2>
+        <div id="nosotros-api" class="api-panel" aria-live="polite">Consultando fuentes externas…</div>
+        <div id="nosotros-map" class="api-map" data-map style="margin-top: 1.25rem;"></div>
+      </div>
+    </section>
+
     <!-- Llamado a la acción -->
     <section class="cta">
       <div class="container cta-inner">
@@ -94,10 +103,11 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <img src="/img/NEXORA.png" alt="Nexora" class="footer-logo">
+      <img src="../img/icon1.png" alt="Nexora" class="footer-logo">
       <p>&copy; 2026 Nexora. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-</body>
+  <script type="module" src="../js/nexora-bootstrap.js"></script>
+  </body>
 </html>

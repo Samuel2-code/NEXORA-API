@@ -32,6 +32,7 @@ export const CONFIG = {
     new URLSearchParams({
       format: 'jsonv2',
       limit: '1',
+      addressdetails: '1',
       'accept-language': 'es',
       q: query
     }).toString(),

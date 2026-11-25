@@ -25,6 +25,7 @@ export async function geocode(query) {
     lat: Number(first.lat),
     lon: Number(first.lon),
     type: first.type || first.category || 'lugar',
+    iso2: String(first.address?.country_code || '').toUpperCase() || null,
     licence: first.licence || ''
   };
 }

@@ -92,7 +92,7 @@ export function renderCountryCards(container, countries, { onFav } = {}) {
           <li><span>Región</span> ${escapeHTML(country.region)}</li>
           <li><span>Población</span> ${escapeHTML(formatPopulation(country.population))}</li>
         </ul>
-        <a class="dest-link" href="itinerario.html?destino=${encodeURIComponent(country.name)}&lat=${country.lat}&lon=${country.lon}&pais=${country.iso2}">Ver detalle →</a>
+        <a class="dest-link" href="itinerario.html?destino=${encodeURIComponent(country.name)}&amp;lat=${country.lat}&amp;lon=${country.lon}&amp;pais=${country.iso2}">Ver detalle →</a>
       </div>
     </article>`).join('');
 
@@ -128,7 +128,7 @@ export function renderFavoriteCards(container, favorites, onRemove) {
         <h3>${escapeHTML(country.name)}</h3>
         <p class="fav-meta">${escapeHTML(country.capital)} · ${escapeHTML(country.region)}</p>
         <div class="fav-actions">
-          <a class="dest-link" href="explorar.html?pais=${country.iso2}">Ver detalle →</a>
+          <a class="dest-link" href="itinerario.html?destino=${encodeURIComponent(country.name)}&amp;lat=${country.lat}&amp;lon=${country.lon}&amp;pais=${country.iso2}">Ver detalle →</a>
           <button class="btn btn-ghost btn-xs" type="button" data-remove="${escapeHTML(country.iso2)}">Quitar</button>
         </div>
       </div>

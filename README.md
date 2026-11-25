@@ -52,3 +52,5 @@ En el repo: **Settings → Pages → Source: Deploy from a branch → main / roo
 - Los favoritos se guardan en `localStorage` (`nexora:favorites`).
 - Si una API falla, se conservan los datos quemados originales y se muestra un mensaje con `aria-live`.
 - Nominatim nunca se llama al cargar una página ni por tecla: solo en búsquedas, envío del formulario y cambio de destino.
+- El buscador del inicio resuelve el texto con Nominatim y abre automáticamente el itinerario de ese lugar (`destino`, `lat`, `lon` y `pais` van en la URL).
+- El itinerario se genera desde esos parámetros: bandera, título, fechas, actividades y mapa cambian para cada destino. Si llegan `inicio` y `fin`, el carrusel ajusta el número de días.
